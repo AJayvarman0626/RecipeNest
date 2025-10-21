@@ -9,7 +9,7 @@ export default function RecipeDetails() {
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const res = await fetch(`https://recipenest-api-fs0m.onrender.com/${id}`);
+        const res = await fetch("https://recipenest-api-fs0m.onrender.com/api/recipes")  
         const data = await res.json();
         setRecipe(data);
       } catch (err) {
