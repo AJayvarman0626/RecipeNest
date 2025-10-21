@@ -13,7 +13,7 @@ export default function Admin() {
   const [editingId, setEditingId] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const API_URL = "https://recipenest-api-fs0m.onrender.com";
+const API_URL = "https://recipenest-api-fs0m.onrender.com/api/recipes";
 
   // ✅ Fetch all recipes
   const fetchRecipes = async () => {
