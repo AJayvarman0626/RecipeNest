@@ -5,7 +5,8 @@ export default function Explore() {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const API_URL = "https://recipenest-api-fs0m.onrender.com"; // make sure backend is running
+  fetch("https://recipenest-api-fs0m.onrender.com/api/recipes")
+
 
   useEffect(() => {
     const fetchRecipes = async () => {
