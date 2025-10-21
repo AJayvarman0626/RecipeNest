@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/recipes";
+const API_URL = "https://recipenest-api-fs0m.onrender.com/api/recipes";
 
 // Get all recipes
 export const getRecipes = async () => {
