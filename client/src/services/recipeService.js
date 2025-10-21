@@ -2,6 +2,7 @@ import axios from "axios";
 
 const API_URL = "https://recipenest-api-fs0m.onrender.com/api/recipes";
 
+
 // Get all recipes
 export const getRecipes = async () => {
   const res = await axios.get(API_URL);
