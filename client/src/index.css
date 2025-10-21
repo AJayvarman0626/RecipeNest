@@ -1,0 +1,252 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- 🌊 Root Theme Variables (Teal-Blue Minimal Pink) ---------- */
+:root {
+  --bg-light: #f9fbfb;
+  --text-dark: #0f2a33;
+  --accent: #01869e; /* teal blue main */
+  --accent-hover: #026877;
+  --accent-soft: #b6e4e9; /* lighter teal */
+  --pink-accent: #fce4ec; /* soft pastel pink accent */
+  --card-bg: #ffffff;
+  --border-light: #d8e5e7;
+}
+
+/* ---------- 🩵 Global Styles ---------- */
+html,
+body {
+  margin: 0;
+  padding-top: 23px; /* for navbar offset */
+  font-family: "Inter", "Poppins", sans-serif;
+  background: linear-gradient(
+    to bottom right,
+    #ffffff,
+    var(--accent-soft),
+    #f9fafa
+  );
+  color: var(--text-dark);
+  scroll-behavior: smooth;
+  line-height: 1.6;
+}
+
+* {
+  transition: all 0.25s ease-in-out;
+}
+
+/* ---------- 🌐 Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--accent);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-hover);
+}
+::-webkit-scrollbar-track {
+  background-color: #edf6f7;
+}
+
+/* ---------- 🩵 Common Utilities ---------- */
+.container {
+  @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: #fff;
+  @apply px-5 py-2.5 rounded-lg shadow-md font-semibold hover:scale-105;
+}
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  box-shadow: 0 0 10px rgba(1, 134, 158, 0.3);
+}
+
+.btn-secondary {
+  background-color: var(--pink-accent);
+  color: var(--accent);
+  @apply px-5 py-2.5 rounded-lg font-semibold hover:scale-105;
+}
+.btn-secondary:hover {
+  background-color: #f9d2df;
+  box-shadow: 0 0 8px rgba(252, 228, 236, 0.4);
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  @apply rounded-2xl p-6 shadow-sm hover:shadow-lg transition;
+}
+
+/* ---------- 🩵 Typography ---------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+h1 {
+  font-size: clamp(1.8rem, 4vw, 2.3rem);
+}
+
+h2 {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+}
+
+p {
+  color: #425c63;
+}
+
+/* ---------- ✨ Animations ---------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+@keyframes bounceSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  
+}
+.bounce-slow {
+  animation: bounceSlow 2s infinite ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* ---------- 🩵 Navbar ---------- */
+nav {
+  backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.85);
+  border-bottom: 2px solid var(--accent);
+  box-shadow: 0 3px 12px rgba(1, 134, 158, 0.1);
+}
+
+/* ---------- 🌸 Link Hover ---------- */
+.link-hover {
+  @apply relative inline-block;
+}
+.link-hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 0;
+  background-color: var(--accent);
+  transition: width 0.3s ease-in-out;
+}
+.link-hover:hover::after {
+  width: 100%;
+}
+
+/* ---------- 🩵 Cards & UI ---------- */
+.card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(1, 134, 158, 0.02)
+  );
+}
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* ---------- 📱 Responsive ---------- */
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;
+    background: linear-gradient(
+      to bottom,
+      #ffffff,
+      #fefefe,
+      var(--accent-soft)
+    );
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    @apply w-full text-center text-base;
+  }
+
+  .card {
+    @apply p-4 rounded-xl;
+  }
+
+  nav {
+    @apply px-4 py-3 text-sm;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+}
+
+/* ---------- 💫 Loader Animations ---------- */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.fade-out {
+  animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1.2s ease-in-out;
+}
+.animate-fadeOut {
+  animation: fadeOut 0.8s ease-in-out forwards;
+}
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.floating-hat {
+  animation: floatSlow 3s ease-in-out infinite;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-in-out;
+}
