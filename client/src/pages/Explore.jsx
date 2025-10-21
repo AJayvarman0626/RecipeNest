@@ -5,9 +5,10 @@ export default function Explore() {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  fetch("https://recipenest-api-fs0m.onrender.com/api/recipes")
+  // ✅ Define your API endpoint once
+  const API_URL = "https://recipenest-api-fs0m.onrender.com/api/recipes";
 
-
+  // ✅ Fetch from backend
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
@@ -21,9 +22,11 @@ export default function Explore() {
         setLoading(false);
       }
     };
+
     fetchRecipes();
   }, []);
 
+  // ✅ Add to favorites
   const addToFavorites = (recipe) => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (!user) {
@@ -104,7 +107,7 @@ export default function Explore() {
 
                   <button
                     onClick={(e) => {
-                      e.preventDefault(); // stop the Link navigation
+                      e.preventDefault(); // stop link navigation
                       e.stopPropagation();
                       addToFavorites(recipe);
                     }}
